@@ -1,3 +1,9 @@
 <resources>
-    <string name="app_name">WashingTons2</string>
+    <string name="app_name">Washing Tons</string>
+    <string name="washer">Washer</string>
+    <string name="dryer">Dryer</string>
+    <string name="other">Other</string>
+    <string name="default_icon">a</string>
+    <string name="default_firstline">First Line</string>
+    <string name="default_secondline">Second Line</string>
 </resources>

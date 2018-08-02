@@ -22,9 +22,8 @@
                 android:layout_marginBottom="16dp"
                 android:fontFamily="@font/wash"
                 android:gravity="bottom|center_horizontal"
-                android:text="a"
+                android:text="@string/default_icon"
                 android:textSize="32sp" />
-
 
             <TextView
                 android:id="@+id/firstLine"
@@ -34,21 +33,20 @@
                 android:layout_alignParentEnd="true"
                 android:layout_toEndOf="@id/mainIcon"
                 android:gravity="bottom"
-                android:text="First Line"
+                android:text="@string/default_firstline"
                 android:textColor="#de000000"
                 android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/secondLine"
                 android:layout_width="fill_parent"
-                android:layout_height="20dp"
+                android:layout_height="40dp"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginBottom="20dp"
                 android:layout_toEndOf="@id/mainIcon"
-                android:gravity="bottom"
+                android:gravity="top"
                 android:maxLines="2"
-                android:text="Second Line"
+                android:text="@string/default_secondline"
                 android:textColor="#99000000"
                 android:textSize="14sp" />
         </RelativeLayout>
