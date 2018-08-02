@@ -7,11 +7,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import amulp.com.washingtons2.R
+import amulp.com.washingtons2.adapters.RecycleAdapter
+import amulp.com.washingtons2.models.ListItem
+import kotlinx.android.synthetic.main.main_fragment.*
+import org.jetbrains.anko.toast
 
 class MainFragment : Fragment() {
 
+
     companion object {
-        fun newInstance() = MainFragment()
+        private var fragmentType:String = ""
+        fun newInstance(fragmentType:String = "washer") {
+            this.fragmentType = fragmentType
+            MainFragment()
+        }
     }
 
     private lateinit var viewModel: MainViewModel
@@ -24,7 +33,21 @@ class MainFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
-        // TODO: Use the ViewModel
+
+        initAdapterWithList()
+    }
+
+    private fun initAdapterWithList(){
+        recyclerView.adapter = RecycleAdapter(
+                when(fragmentType){
+                    "washer" -> viewModel.getWashList()
+                    "dryer" -> viewModel.getDryList()
+                    "other" -> viewModel.getOtherList()
+                    else -> listOf(ListItem("a", "Error", "Something went wrong"))
+                }
+        ) {
+            context!!.toast(it.firstLine + "clicked")
+        }
     }
 
 }
